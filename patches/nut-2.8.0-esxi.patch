@@ -1,0 +1,13 @@
+diff -Naur nut-2.8.0/common/common.c nut-2.8.0-esxi/common/common.c
+--- nut-2.8.0/common/common.c	2022-04-27 00:03:31.000000000 +0200
++++ nut-2.8.0-esxi/common/common.c	2022-05-02 00:17:36.000000000 +0200
+@@ -252,9 +252,6 @@
+ 		if (seteuid(0))
+ 			fatal_with_errno(EXIT_FAILURE, "getuid gave 0, but seteuid(0) failed");
+ 
+-	if (initgroups(pw->pw_name, pw->pw_gid) == -1)
+-		fatal_with_errno(EXIT_FAILURE, "initgroups");
+-
+ 	if (setgid(pw->pw_gid) == -1)
+ 		fatal_with_errno(EXIT_FAILURE, "setgid");
+ 
